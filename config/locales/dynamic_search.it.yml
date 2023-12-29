@@ -1,0 +1,24 @@
+it:
+  dynamic_search:
+    operator:
+      matches: fiammiferi
+      does_not_match: non corrisponde
+      eq: è
+      not_eq: non è
+      gteq: almeno
+      lteq: al massimo
+      in: include
+      not_in: non include
+      begins_with: inizia con
+      ends_with: finisce con
+      eq_since: da
+      gteq_since: almendo since
+      lteq_since: al massimo da
+    values:
+      yes: Sì
+      no: No
+    add_fieldset: Aggiungi criteri di ricerca
+    add_criteria: Aggiungi criteri di ricerca
+    remove_fieldset: Rimuovi
+    clear: Ricerca chiara
+    submit: Ricerca

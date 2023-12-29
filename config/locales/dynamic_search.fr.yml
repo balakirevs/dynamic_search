@@ -1,0 +1,24 @@
+fr:
+  dynamic_search:
+    operator:
+      matches: correspond
+      does_not_match: ne correspond pas
+      eq: est
+      not_eq: n'est pas
+      gteq: au moins
+      lteq: au maximum
+      in: comprend
+      not_in: ne comprend pas
+      begins_with: commence par
+      ends_with: se termine par
+      eq_since: depuis
+      gteq_since: depuis au moins
+      lteq_since: au maximum depuis
+    values:
+      yes: Oui
+      no: Non
+    add_fieldset: Ajouter filtre
+    add_criteria: Ajouter filtre
+    remove_fieldset: Supprimer
+    clear: Réinitialiser recherche
+    submit: Rechercher

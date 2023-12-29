@@ -1,0 +1,2 @@
+module DynamicSearch::Concerns
+end

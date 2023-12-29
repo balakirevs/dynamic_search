@@ -1,0 +1,24 @@
+en:
+  dynamic_search:
+    operator:
+      matches: matches
+      does_not_match: does not match
+      eq: is
+      not_eq: is not
+      gteq: at least
+      lteq: at most
+      in: includes
+      not_in: does not include
+      begins_with: begins with
+      ends_with: ends with
+      eq_since: since
+      gteq_since: at least since
+      lteq_since: at most since
+    values:
+      yes: Yes
+      no: No
+    add_fieldset: Add search criteria
+    add_criteria: Add search criteria
+    remove_fieldset: Remove
+    clear: Clear search
+    submit: Search
