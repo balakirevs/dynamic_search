@@ -1,0 +1,6 @@
+--color
+--format progress
+
+--require rspec_junit_formatter
+--format RspecJunitFormatter
+--out spec/reports/rspec.junit.xml

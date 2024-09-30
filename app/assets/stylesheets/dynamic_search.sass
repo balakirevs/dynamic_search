@@ -1,0 +1,104 @@
+.dynamic_search
+  fieldset
+    position: relative
+    margin: 5px 0
+    a
+      position: relative
+      top: 5px
+      &:before
+        content: image-url('dynamic_search/fieldset-remove.png')
+
+  .dynamic_search_add
+    text-decoration: none
+    font-size: 90%
+    span
+      text-decoration: underline
+
+  .dynamic_search_add_and_submit
+    text-align: right
+
+    input
+      margin-bottom: 5px
+
+    .dynamic_search_add
+      float: left
+
+  .dynamic_search_inputs
+    float: left
+
+  .dynamic_search_clear
+    text-decoration: underline
+
+  .dynamic_search_value
+    width: 24em
+
+  .dynamic_search_column, .dynamic_search_operator
+    width: 9em
+
+.dynamic-search
+  .inputs
+    fieldset
+      position: relative
+      margin: 5px 0
+
+      a.fieldset-remove
+        display: inline-block
+        position: relative
+        vertical-align: middle
+        top: 4px
+        &:before
+          position: relative
+          top: 4px
+          margin-right: 3px
+          content: image-url('dynamic_search/fieldset-remove.png')
+
+      .key, .operator, .value
+        display: inline-block
+        position: relative
+        box-sizing: border-box
+        vertical-align: top
+        margin: 0 6px 0 0
+
+      .key
+        width: 25%
+
+      .operator
+        width: 15%
+
+      .value
+        width: auto
+        max-width: 60%
+        min-width: 40%
+
+      div.value
+        width: 40%
+
+        > *
+          width: 100%
+
+        &.type-month
+          select.month, input.year
+            display: inline-block
+            width: calc(50% - 3px)
+            vertical-align: top
+          select.month
+            margin-right: 0
+          input.year
+            margin-right: 6px
+
+  .fieldset-add
+    text-decoration: none
+    span
+      text-decoration: underline
+
+  .clearquery
+    text-decoration: underline
+
+  // ui select styling fixes
+  .ui-select-match-item
+    padding-bottom: 3px
+    padding-top: 3px
+    margin-bottom: 1px
+
+  .ui-select-search
+    height: 1.8em !important
