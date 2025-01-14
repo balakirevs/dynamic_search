@@ -5,6 +5,8 @@ describe DynamicSearch::Processor do
     let(:scope) {
       double('scope').tap do |mock_scope|
         allow(mock_scope).to receive(:merge)
+        allow(mock_scope).to receive(:distinct) { mock_scope }
+        allow(mock_scope).to receive(:and) { mock_scope }
       end
     }
     let(:params) {
@@ -35,8 +37,8 @@ describe DynamicSearch::Processor do
 
     context 'when DynamicSearch::Query#scope returns truthy value' do
       it 'is merged to scope' do
-        allow_any_instance_of(DynamicSearch::Query).to receive(:scope) { {} }
-        expect(scope).to receive(:merge).with({})
+        allow_any_instance_of(DynamicSearch::Query).to receive(:scope) { scope }
+        expect(scope).to receive(:and).with(scope)
         processor.scope
       end
     end

@@ -10,7 +10,7 @@ module DynamicSearch
       options[:method] ||= :get
       options[:param_name] ||= :dynamic_search
       options[:clear_search_link] = true if options[:clear_search_link].nil?
-      old_search = params[options[:param_name]] || {}
+      old_search = params[options[:param_name]]&.to_unsafe_h || {}
       content_tag(:div, :class => :dynamic_search) do
         concat( content_tag(:div, :class => :templates) { dynamic_search_input_templates(columns, options) } )
         concat( form_tag({}, options) do
@@ -57,7 +57,7 @@ module DynamicSearch
 
     def dynamic_search_input_templates(columns, options = {})
       return nil if columns.nil?
-      capture_haml do
+      capture do
         columns.each_pair do |col_name, col_options|
           template_column(col_name, col_options, columns, options)
         end
@@ -66,7 +66,7 @@ module DynamicSearch
 
     def dynamic_search_inputs(columns, old_search, options = {})
       counter = 0
-      capture_haml do
+      capture do
         if old_search
           old_search.sort.map(&:last).each do |item|
             if item.size == 1
@@ -95,11 +95,11 @@ module DynamicSearch
       fieldset_style = options[:template] ? 'display:none' : ''
       fieldset_class = options[:template] ? 'dynamic_search_template' : 'dynamic_search_active'
 
-      haml_tag(:fieldset, id: fieldset_id, style: fieldset_style, class: fieldset_class) do
-         haml_concat name_input_for_column(col_name, col_options, columns, options)
-         haml_concat operator_input_for_column(col_name, col_options, columns, options)
-         haml_concat value_input_for_column(col_name, col_options, columns, options)
-         haml_concat link_to('', 'javascript:void(0);', :class => 'dynamic_search_remove', :style => 'display:none')
+      content_tag(:fieldset, id: fieldset_id, style: fieldset_style, class: fieldset_class) do
+         concat name_input_for_column(col_name, col_options, columns, options)
+         concat operator_input_for_column(col_name, col_options, columns, options)
+         concat value_input_for_column(col_name, col_options, columns, options)
+         concat link_to('', 'javascript:void(0);', :class => 'dynamic_search_remove', :style => 'display:none')
        end
     end
 

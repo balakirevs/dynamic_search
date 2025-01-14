@@ -11,6 +11,8 @@ Gem::Specification.new do |s|
   s.summary     = %q{Dynamic search for rails}
   s.description = %q{Helpers and angular module to make fancy dynamic searches with arel.}
 
+  s.required_ruby_version     = ">= 3.2.0"
+
   s.files       = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
   end
@@ -23,9 +25,8 @@ Gem::Specification.new do |s|
   s.add_dependency('i18n-js', '>= 3.0.11')
 
   s.add_development_dependency "rspec_junit_formatter"
-  s.add_development_dependency "rspec", "~> 2.14.0"
-  s.add_development_dependency "rails", ">= 4.0"
+  s.add_development_dependency "rspec", "~> 3.13"
+  s.add_development_dependency "rails", ">= 8.0"
   s.add_development_dependency "pry", "~> 0.9"
   s.add_development_dependency "simplecov", "~> 0.8"
 end
-

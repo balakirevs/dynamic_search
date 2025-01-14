@@ -74,10 +74,12 @@ class DynamicSearch::Processor
   def scope
     @params.values.inject(@scope) do |memo, query|
       if (query_scope = DynamicSearch::Query.new(@scope, query, @config).scope)
-        if query_scope.joins_values.present?
-          memo.joins(query_scope.joins_values).distinct.and(query_scope.distinct).distinct
+        if query_scope
+          memo = memo.joins(query_scope.joins_values) if query_scope.try(:joins_values).present?
+          memo = memo.includes(query_scope.includes_values) if query_scope.try(:includes_values).present?
+          memo.distinct.and(query_scope.distinct).distinct
         else
-          memo.distinct.and(query_scope.distinct)
+          memo.distinct
         end
       else
         memo.distinct

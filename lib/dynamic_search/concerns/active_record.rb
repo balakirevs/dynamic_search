@@ -12,6 +12,7 @@ module DynamicSearch::Concerns::ActiveRecord
       config ||= self.dynamic_search_config
       scope = DynamicSearch::Processor.new(all, query, config).scope
       all.joins(scope.joins_values).distinct
+         .includes(scope.includes_values)
          .and(scope.distinct)
     end
   end

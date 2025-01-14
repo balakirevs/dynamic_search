@@ -52,7 +52,7 @@ describe DynamicSearch::Query do
         query.query[:operator] = :not_eq
         expr = query.arel_query.expr
         expect(expr.class).to eq(Arel::Nodes::Or)
-        expect(expr.right.right.val).to eq(nil)
+        expect(expr.right.right.value).to eq(nil)
       end
     end
 
@@ -62,7 +62,7 @@ describe DynamicSearch::Query do
         query.query[:operator] = :not_eq
         expr = query.arel_query.expr
         expect(expr.class).to eq(Arel::Nodes::Or)
-        expect(expr.right.right.val).to eq(nil)
+        expect(expr.right.right.value).to eq(nil)
       end
     end
 
